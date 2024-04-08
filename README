@@ -1,8 +1,42 @@
-course github
+################################
+# Metabolic Modeling with HOTMIX 
+################################
+
+#A. CPLEX solver install 
+1) create academic ccount on: https://www.ibm.com/account/us-en/
+2) download CPLEX: https://www-40.ibm.com/isc/esd/dswdown/home?ticket=Xa.2%2FXb.Z7LJBh8BR1xZKBUREBK4pX0L%2FXc.%2FXd.%2FXf.%2FXg.12765450%2FXi.%2FXY.scholars%2FXZ.ojLxuxTgUJtAYO9XXRvYkI7GO1DIDe5F&partNumber=G0798ML
+3) Install once downloaded
+
+#B. Conda environment with all tools for metabolic models
+1) conda create --name carveme
+2) conda activate carveme
+3) pip install carveme
+4) conda install -c bioconda diamond
+5) conda install python=3.10
+6) cd Applications/CPLEX_Studio2211/python
+7) python setup.py install
+8) pip install smetana
+ 
+conda deactivate
+
+# C. Run the command for all the MAGs
+1) copy all MAGs predicted proteins files (*.faa) to a local dir (HOTMIX)
+2) Run the following commands in a tmux session:
+cd Desktop/HOTMIX
+mkdir model_mag
+
+for i in `ls 14_metabolic_modeling/*.faa`
+do
+mag=`echo $i | sed 's:14_metabolic_modeling/::'| sed 's/.faa//'`
+carve ${i} -o model_mag/${mag}.xml
+echo $mag
+done
 
 
-hola
-new stuff
 
 
-new
+
+
+
+
+
