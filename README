@@ -19,7 +19,7 @@
  
 conda deactivate
 
-# C. Run the command for all the MAGs
+# C. Run CARVEME for all the MAGs
 1) copy all MAGs predicted proteins files (*.faa) to a local dir (HOTMIX)
 2) Run the following commands in a tmux session:
 cd Desktop/HOTMIX
@@ -31,6 +31,8 @@ mag=`echo $i | sed 's:14_metabolic_modeling/::'| sed 's/.faa//'`
 carve ${i} -o model_mag/${mag}.xml
 echo $mag
 done
+
+carveme builds a metabolic model prediction of all genomes based on their predicted proteins. It allows to predict the uptake and secretion capabilities of an organism only from genetic evidence and will produce a simulation-ready model without gap-filling for any particular media. It is also possible to "enforce" the presence of a metabolic route in a genome, this can be useful in the case we are working with incomplete genomes for which we know that they can grow on a specific media but the pathway seems incomplete. This is called gap filling (examples provided include pathways for growth on M9, or LB media). The full list of media can be found there: https://github.com/cdanielmachado/carveme/blob/master/carveme/data/input/media_db.tsv
 
 
 
