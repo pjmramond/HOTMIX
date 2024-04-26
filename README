@@ -15,6 +15,7 @@
 5) conda install python=3.10
 6) cd Applications/CPLEX_Studio2211/python
 7) python setup.py install
+7A) [look for install path and change] export PATH=$PATH:/home/username/CPLEX_Studio129/cplex/bin/x86-64_linux
 8) pip install smetana
 (conda deactivate)
 
@@ -34,8 +35,6 @@ echo $mag
 done
 
 Comments on carveme: carveme builds a metabolic model (.xml file) prediction of all genomes based on their predicted proteins (.faa file + generated .tsv file). It allows to predict the uptake and secretion capabilities of an organism only from genetic evidence and will produce a simulation-ready model without gap-filling for any particular media. It is also possible to "enforce" the presence of a metabolic route in a genome, this can be useful in the case we are working with incomplete genomes for which we know that they can grow on a specific media but the pathway seems incomplete. This is called gap filling (examples provided include pathways for growth on M9, or LB media). The full list of media can be found there: https://github.com/cdanielmachado/carveme/blob/master/carveme/data/input/media_db.tsv
-
-
 
 
 
